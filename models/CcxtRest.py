@@ -23,4 +23,19 @@ class CcxtRest:
     except Exception as e:
       raise
 
-print(CcxtRest.order_book('binance', 'ETH/USDT'))
+  @staticmethod
+  def ticker(ex, pair):
+    exchange = getattr(ccxt, ex)()
+    ticker = exchange.fetch_ticker(pair)
+    return {
+      "exchange" : ex,
+      "pair" : pair,
+      "ask" : ticker["ask"],
+      "bid" : ticker["bid"],
+      "last" : ticker["last"],
+      "open" : ticker["open"],
+      "close" : ticker["close"],
+      "timestamp" : ticker["timestamp"]
+    }
+
+print(CcxtRest.ticker("binance", "BTC/USDT"))
