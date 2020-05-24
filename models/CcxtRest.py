@@ -7,7 +7,7 @@ class CcxtRest:
     try:
       exchange = getattr(ccxt, ex)()
       markets = exchange.load_markets()
-      if (markets[pair]):
+      if pair in markets.keys():
         order_book = exchange.fetch_order_book(pair)
         timestamp = timestamp = int(time()*1000.0)
 
