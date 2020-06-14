@@ -2,7 +2,6 @@ class Calculate:
 
   @staticmethod
   def relative_difference(source_amount, destination_amount):
-    # print(source_amount, destination_amount)
     relative_difference = round(((destination_amount - source_amount) / max(source_amount, destination_amount) * 100), 2)
     return relative_difference
 
