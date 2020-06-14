@@ -37,5 +37,3 @@ class CcxtRest:
       "close" : ticker["close"],
       "timestamp" : ticker["timestamp"]
     }
-
-print(CcxtRest.ticker("binance", "BTC/USDT"))

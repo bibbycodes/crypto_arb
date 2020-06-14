@@ -1,7 +1,8 @@
-import models.Calculate
+from models.Calculate import Calculate
 
 class Trade:
   def __init__(self, trade_object, tickers):
+    print(trade_object['symbol'])
     self.symbol = trade_object['symbol']
     self.trade_pair = trade_object['trade_pair']
     self.from_coin = trade_object['from_coin']
@@ -16,8 +17,8 @@ class Trade:
     self.ask = tickers[self.symbol]['ask']
     self.bid = tickers[self.symbol]['bid']
     self.change = tickers[self.symbol]['change']
-    self.base_volume = tickers[self.symbol]['base_volume']
-    self.quote_volume = tickers[self.symbol]['quote_volume']
+    self.base_volume = tickers[self.symbol]['baseVolume']
+    self.quote_volume = tickers[self.symbol]['quoteVolume']
     self.spread = abs(Calculate.relative_difference(self.ask, self.bid))
 
   def get_amount(self, previous_amount):

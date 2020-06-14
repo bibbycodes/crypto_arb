@@ -5,16 +5,16 @@ class Validate:
       return True
     return False
 
-  @static_method
+  @staticmethod
   def correct_pair(markets, quote, base):
-    forward = '{}/{}'.format(quote.upper(), base.upper())
-    backward = '{}/{}'.format(base.upper(), quote.upper())
+    forward = f'{quote.upper()}/{base.upper()}'
+    backward = f'{base.upper()}/{quote.upper()}'
     market_keys = markets.keys()
 
     if forward in market_keys:
-      return forward
+      return markets[forward]
     elif backward in market_keys:
-      return backward
+      return markets[backward]
     else:
       return False
 
